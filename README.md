@@ -1,36 +1,35 @@
+<!--
+ * @Author: 姜彦汐
+ * @Date: 2020-12-24 10:23:09
+ * @LastEditors: 姜彦汐
+ * @LastEditTime: 2020-12-30 14:58:05
+ * @Description: 
+ * @Contact: jiangyanxi@live.com
+ * @FilePath: /egg-wechat/README.md
+-->
 # egg-wechat
 
-[![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
-[![Test coverage][codecov-image]][codecov-url]
-[![David deps][david-image]][david-url]
-[![Known Vulnerabilities][snyk-image]][snyk-url]
-[![npm download][download-image]][download-url]
-
-[npm-image]: https://img.shields.io/npm/v/egg-wechat.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/egg-wechat
-[travis-image]: https://img.shields.io/travis/eggjs/egg-wechat.svg?style=flat-square
-[travis-url]: https://travis-ci.org/eggjs/egg-wechat
-[codecov-image]: https://img.shields.io/codecov/c/github/eggjs/egg-wechat.svg?style=flat-square
-[codecov-url]: https://codecov.io/github/eggjs/egg-wechat?branch=master
-[david-image]: https://img.shields.io/david/eggjs/egg-wechat.svg?style=flat-square
-[david-url]: https://david-dm.org/eggjs/egg-wechat
-[snyk-image]: https://snyk.io/test/npm/egg-wechat/badge.svg?style=flat-square
-[snyk-url]: https://snyk.io/test/npm/egg-wechat
-[download-image]: https://img.shields.io/npm/dm/egg-wechat.svg?style=flat-square
-[download-url]: https://npmjs.org/package/egg-wechat
-
-<!--
-Description here.
--->
-
-## Install
+## 安装
 
 ```bash
 $ npm i egg-wechat --save
+# or
+$ yarn add egg-wechat
 ```
 
-## Usage
+## 依赖说明
+
+### 依赖的 egg 版本
+
+egg-wechat 版本 | egg 2.x | egg 1.x
+--- | --- | ---
+1.x | 😁 | ❌
+
+### 依赖的插件
+
+[egg-cache](https://gitee.com/mc-node/egg-cache)
+
+## 使用
 
 ```js
 // {app_root}/config/plugin.js
@@ -40,23 +39,139 @@ exports.wechat = {
 };
 ```
 
-## Configuration
+## 配置
 
 ```js
 // {app_root}/config/config.default.js
-exports.wechat = {
+exports.wechat = {  
+  default: {
+      appid: null,
+      appsecret: null,
+      token: null,
+      encodingAESKey: null,
+      cache: 'cache.disk' // 默认集成 egg-cache，支持任意实现 get、set 方法的缓存插件
+  },
+  // Single
+  client: {
+      message: {
+          // 接收微信公众平台消息
+      },
+      api: {
+          // 公众平台 API
+      },
+      oauth: {
+          // 网页授权
+      },
+      pay: {
+          // 微信支付
+          mchid: null,
+          partnerKey: null,
+          pfx: null,
+          notify_url: null,
+          refund_url: null,
+          spbill_create_ip: null,
+          debug: false
+      },
+      cx: {
+          // 小程序
+          appid: null,
+          appsecret: null,
+          pay: {
+              // 小程序支付
+              mchid: null,
+              partnerKey: null,
+              pfx: null,
+              notify_url: null,
+              refund_url: null,
+              spbill_create_ip: null,
+              debug: false
+          },
+      }
+    },
+    // Multi
+    // clients: {
+    //     wechat1: {
+
+    //     },
+    //     wechat2: {
+
+    //     }
+    // }
 };
 ```
 
-see [config/config.default.js](config/config.default.js) for more detail.
+## 示例
 
-## Example
++ 主动调用公众平台 API
 
-<!-- example here -->
+```js
+await app.wechat.api.**
+```
 
-## Questions & Suggestions
++ 网页授权
 
-Please open an issue [here](https://github.com/eggjs/egg/issues).
+```js
+await app.wechat.oauth.**
+```
+
++ 微信支付
+
+```js
+await app.wechat.pay.**
+```
+
++ 接收微信公众平台消息
+
+```js
+const Controller = require('egg').Controller;
+
+module.exports = app => {
+    class WechatController extends Controller {
+
+    }
+
+    WechatController.prototype.message = app.wechat.message(async (message, ctx) => {
+      // 消息处理
+    })
+
+    return WechatController;
+};
+```
+
+## 自定义缓存机制
+
+```js
+// {app_root}/app/extend/application.js
+const CACHETOKEN = Symbol('cache#token')
+
+module.exports = {
+    get cachetoken() {
+        if (!this[CACHETOKEN]) {
+            async function get(key) {
+                // 
+            }
+
+            async function set(key, value) {
+                //
+            }
+
+            this[CACHETOKEN] = {
+                get,
+                set
+            }
+        }
+
+        return this[CACHETOKEN]
+    }
+};
+// 配置
+// {app_root}/config/config.default.js
+exports.wechat = {  
+  default: {
+      cache: 'cachetoken'
+  },
+}
+```
 
 ## License
 
