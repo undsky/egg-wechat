@@ -2,7 +2,7 @@
  * @Author: 姜彦汐
  * @Date: 2020-12-24 10:23:09
  * @LastEditors: 姜彦汐
- * @LastEditTime: 2020-12-30 14:58:05
+ * @LastEditTime: 2021-01-05 11:06:55
  * @Description: 
  * @Contact: jiangyanxi@live.com
  * @FilePath: /egg-wechat/README.md
@@ -43,7 +43,7 @@ exports.wechat = {
 
 ```js
 // {app_root}/config/config.default.js
-exports.wechat = {  
+config.wechat = {  
   default: {
       appid: null,
       appsecret: null,
