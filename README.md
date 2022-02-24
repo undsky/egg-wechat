@@ -1,19 +1,14 @@
-<!--
- * @Author: 姜彦汐
- * @Date: 2020-12-24 10:23:09
- * @LastEditors: 姜彦汐
- * @LastEditTime: 2021-04-22 10:15:54
- * @Description: 
- * @Contact: jiangyanxi@live.com
- * @FilePath: /egg-wechat/README.md
--->
 # egg-wechat
+
+> Egg plugin for wechat
+
+
 ## 安装
 
 ```bash
-$ npm i egg-wechat --save
+$ npm i egg-wechat2 --save
 # or
-$ yarn add egg-wechat
+$ yarn add egg-wechat2
 ```
 
 ## 依赖说明
@@ -26,13 +21,7 @@ egg 2.x | egg 1.x
 
 ### 依赖的插件
 
-[co-wechat](https://github.com/node-webot/co-wechat)
-
-[co-wechat-api](https://github.com/node-webot/co-wechat-api)
-
-[co-wechat-oauth](https://github.com/node-webot/co-wechat-oauth)
-
-[tenpay](https://github.com/befinal/node-tenpay)
+[tnwx](https://github.com/javen205/TNWX)
 
 ## 开启插件
 
@@ -52,6 +41,11 @@ config.wechat = {
 
 };
 ```
+
+## 示例
+
+## [查看更多项目](https://www.undsky.com)
+
 ## License
 
 [MIT](LICENSE)

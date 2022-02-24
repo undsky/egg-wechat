@@ -1,7 +1,7 @@
 {
-  "name": "egg-wechat",
-  "version": "3.0.0",
-  "description": "",
+  "name": "egg-wechat2",
+  "version": "1.0.0",
+  "description": "Egg plugin for wechat",
   "eggPlugin": {
     "name": "wechat"
   },
@@ -22,11 +22,6 @@
     "微信授权"
   ],
   "dependencies": {
-    "bytenode": "^1.3.4",
-    "co-wechat": "^2.4.0",
-    "co-wechat-api": "^3.11.0",
-    "co-wechat-oauth": "^2.0.1",
-    "tenpay": "^2.1.18",
     "tnwx": "^2.5.6"
   },
   "devDependencies": {
@@ -62,12 +57,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eggjs/egg-wechat.git"
+    "url": "git+https://github.com/undsky/egg-wechat.git"
   },
   "bugs": {
-    "url": "https://github.com/eggjs/egg/issues"
+    "url": "https://github.com/undsky/egg-wechat/issues"
   },
-  "homepage": "https://github.com/eggjs/egg-wechat#readme",
-  "author": "",
+  "homepage": "https://github.com/undsky/egg-wechat#readme",
+  "author": "姜彦汐 https://www.undsky.com",
   "license": "MIT"
 }
