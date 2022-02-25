@@ -1,6 +1,6 @@
 {
   "name": "egg-wechat2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Egg plugin for wechat",
   "eggPlugin": {
     "name": "wechat"
@@ -22,6 +22,7 @@
     "微信授权"
   ],
   "dependencies": {
+    "@peculiar/x509": "^1.6.1",
     "tnwx": "^2.5.6"
   },
   "devDependencies": {

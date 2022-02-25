@@ -21,6 +21,8 @@ egg 2.x | egg 1.x
 
 ### 依赖的插件
 
+[@peculiar/x509](https://github.com/PeculiarVentures/x509)
+
 [tnwx](https://github.com/javen205/TNWX)
 
 ## 开启插件
@@ -29,7 +31,7 @@ egg 2.x | egg 1.x
 // {app_root}/config/plugin.js
 exports.wechat = {
   enable: true,
-  package: 'egg-wechat',
+  package: 'egg-wechat2',
 };
 ```
 
