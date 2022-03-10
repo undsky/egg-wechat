@@ -1,6 +1,6 @@
 {
   "name": "egg-wechat2",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Egg plugin for wechat",
   "eggPlugin": {
     "name": "wechat"
@@ -51,7 +51,8 @@
     "app.js",
     "agent.js",
     "config",
-    "app"
+    "app",
+    "lib"
   ],
   "ci": {
     "version": "8, 10"
